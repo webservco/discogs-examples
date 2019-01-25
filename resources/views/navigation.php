@@ -1,35 +1,29 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-    <a class="app-nav navbar-brand" href="<?=$this->data('url/app', '/')?>App/home">Home</a>
+    <a class="app-nav navbar-brand" href="<?=$this->data('url/app', '/')?>App/home"><?=__('Discogs Examples')?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
-        <?php foreach ([
-            'dashboard' => 'Dashboard (Home alias)',
-            'Devel/noexist' => 'Noexist',
-            ] as $location => $title) { ?>
-            <li class="nav-item<?=$this->data('location/current') == $location ? ' active' : ''?>">
-                <a class="app-nav nav-link" href="<?=$this->data('url/app', '/')?><?=$location?>"><?=$title?></a>
-            </li>
-        <?php } ?>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown-datatables" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DataTables</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown-datatables">
-                <a class="app-nav dropdown-item" href="<?=$this->data('url/app', '/')?>DataTables/simple">Simple</a>
-                <a class="app-nav dropdown-item" href="<?=$this->data('url/app', '/')?>DataTables/database">Database</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown-useridentity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=__('User Identity')?></a>
+            <?php foreach ([
+                'UserIdentity/profile' => __('Profile')
+                ] as $location => $title) { ?>
+            <div class="dropdown-menu" aria-labelledby="dropdown-useridentity">
+                <a class="app-nav dropdown-item" href="<?=$this->data('url/app', '/')?><?=$location?>"><?=$title?></a>
             </div>
+            <?php } ?>
         </li>
-    </ul>
-    <ul class="navbar-nav">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown">
-                <a class="app-nav dropdown-item" href="#">Item</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown-useridentity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=__('User Collection')?></a>
+            <?php foreach ([
+                'UserCollection/value' => __('Value')
+                ] as $location => $title) { ?>
+            <div class="dropdown-menu" aria-labelledby="dropdown-useridentity">
+                <a class="app-nav dropdown-item" href="<?=$this->data('url/app', '/')?><?=$location?>"><?=$title?></a>
             </div>
-        </li>
-        <li class="nav-item">
-            <a class="btn btn-primary my-2 my-sm-0" href="https://github.com/webservco/webapp-skeleton">GitHub</a>
+            <?php } ?>
         </li>
     </ul>
 </div>
