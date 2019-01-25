@@ -1,5 +1,5 @@
 {
-  "name": "webapp-skeleton",
+  "name": "@webservco/webapp-skeleton",
   "version": "1.0.0",
   "description": "A simple webservco/framework Web Application Skeleton to help start a new project fast.",
   "main": "index.js",

@@ -1,12 +1,12 @@
 {
-    "name" : "webservco/webapp-skeleton",
+    "name" : "webservco/discogs-examples",
     "type" : "project",
-    "description" : "A simple webservco/framework Web Application Skeleton to help start a new project fast.",
+    "description" : "Discogs libraries implementation examples.",
     "keywords" : [
-        "framework",
-        "webservco"
+        "webservco",
+        "discogs"
     ],
-    "homepage" : "https://webserv.co/",
+    "homepage" : "https://github.com/webservco/discogs-examples",
     "license" : "MIT",
     "authors" : [
         {
@@ -16,7 +16,9 @@
     ],
     "require" : {
         "php" : "^5.4 || ^7.0",
-        "webservco/framework" : "@dev"
+        "webservco/framework" : "@dev",
+        "webservco/discogs-auth" : "@dev",
+        "webservco/discogs-api" : "@dev"
     },
     "require-dev" : {
         "phpunit/phpunit" : "~4|~5"

@@ -15,8 +15,8 @@ trait ControllerMetaDomainTrait
     protected function getDefaultMeta()
     {
         return [
-            'title' => 'App',
-            'description' => __('Aplication description'),
+            'title' => 'Discogs Examples',
+            'description' => __('Discogs libraries implementation examples.'),
         ];
     }
 }
