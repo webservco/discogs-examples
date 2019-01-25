@@ -1,0 +1,21 @@
+<?php
+
+return [
+    'api' => [
+        'authType' => '', // user, app, oauth
+        'authApp' => [
+            'consumerKey' => '',
+            'consumerSecret' => '',
+        ],
+        'authUser' => [
+            'personalAccessToken' => '',
+        ],
+        'settings' => [
+            'processResponse' => true,
+            'userAgent' => '',
+        ],
+        'username' =>'',
+    ],
+    'data' => [
+    ],
+];
