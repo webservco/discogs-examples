@@ -14,7 +14,8 @@
 <h2><?=__('User Collection')?></h2>
 <div class="list-group">
     <?php foreach ([
-        'UserCollection/value' => __('Value')
+        'UserCollection/fields' => __('Fields'),
+        'UserCollection/value' => __('Value'),
         ] as $location => $title) { ?>
     <a href="<?=$this->data('url/app', '/')?><?=$location?>" class="app-nav list-group-item list-group-item-action"><?=$title?></a>
     <?php } ?>

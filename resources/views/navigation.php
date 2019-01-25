@@ -7,23 +7,25 @@
     <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown-useridentity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=__('User Identity')?></a>
-            <?php foreach ([
-                'UserIdentity/profile' => __('Profile')
-                ] as $location => $title) { ?>
             <div class="dropdown-menu" aria-labelledby="dropdown-useridentity">
+            <?php foreach ([
+                'UserIdentity/profile' => __('Profile'),
+                ] as $location => $title) { ?>
+
                 <a class="app-nav dropdown-item" href="<?=$this->data('url/app', '/')?><?=$location?>"><?=$title?></a>
-            </div>
             <?php } ?>
+            </div>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown-useridentity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=__('User Collection')?></a>
-            <?php foreach ([
-                'UserCollection/value' => __('Value')
-                ] as $location => $title) { ?>
             <div class="dropdown-menu" aria-labelledby="dropdown-useridentity">
+            <?php foreach ([
+                'UserCollection/fields' => __('Fields'),
+                'UserCollection/value' => __('Value'),
+                ] as $location => $title) { ?>
                 <a class="app-nav dropdown-item" href="<?=$this->data('url/app', '/')?><?=$location?>"><?=$title?></a>
-            </div>
             <?php } ?>
+            </div>
         </li>
     </ul>
 </div>
