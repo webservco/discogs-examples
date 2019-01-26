@@ -17,13 +17,12 @@
                     <div class="alert alert-danger" role="alert">
                         <?php foreach ($this->data('error') as $title => $message) { ?>
                             <h3><?=__('Error')?> <span class="badge badge-danger font-weight-lighter"><?=$title?></span></h3>
-                            <p><?=$message?></p>
+                            <pre><samp><?=$message?></samp></pre>
                         <?php } ?>
                     </div>
                 <?php } else { ?>
                     <div class="alert alert-success" role="alert">
                         <pre><samp><?php var_dump($this->data('result')) ?></samp></pre>
-
                     </div>
                 <?php } ?>
             </div>

@@ -18,7 +18,7 @@ class UserCollectionController extends \Project\AbstractController
     {
         $this->init(__FUNCTION__);
 
-        $apiObject = new \WebServCo\DiscogsApi\User\Collection\Fields(
+        $apiObject = new \WebServCo\DiscogsApi\Api\User\Collection\Fields(
             $this->api,
             $this->config()->get('discogs/api/username')
         );
@@ -39,7 +39,7 @@ class UserCollectionController extends \Project\AbstractController
     {
         $this->init(__FUNCTION__);
 
-        $apiObject = new \WebServCo\DiscogsApi\User\Collection\Value(
+        $apiObject = new \WebServCo\DiscogsApi\Api\User\Collection\Value(
             $this->api,
             $this->config()->get('discogs/api/username')
         );

@@ -18,7 +18,7 @@ class UserIdentityController extends \Project\AbstractController
     {
         $this->init(__FUNCTION__);
 
-        $apiObject = new \WebServCo\DiscogsApi\User\Identity\Profile(
+        $apiObject = new \WebServCo\DiscogsApi\Api\User\Identity\Profile(
             $this->api,
             $this->config()->get('discogs/api/username')
         );
