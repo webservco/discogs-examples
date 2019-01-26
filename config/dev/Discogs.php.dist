@@ -8,6 +8,18 @@ return [
                 'consumerKey' => '',
                 'consumerSecret' => '',
             ],
+            'oauth' => [
+                'flow' => [
+                    'callback' => '',
+                    'oauthToken' => '',
+                    'oauthTokenSecret' => '',
+                    'oauthVerifier' => '',
+                ],
+                'access' => [
+                    'oauthToken' => '',
+                    'oauthTokenSecret' => '',
+                ],
+            ],
             'user' => [
                 'personalAccessToken' => '',
             ],
