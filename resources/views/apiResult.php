@@ -1,4 +1,7 @@
-<h1><?=__('API Result')?></h1>
+<h1>
+    <?=__('API Result')?>
+    <span class="badge badge-secondary font-weight-lighter"><?=$this->data('location/current')?></span>
+</h1>
 
 <?php if ($this->data('error')) { ?>
     <div class="alert alert-danger" role="alert">
