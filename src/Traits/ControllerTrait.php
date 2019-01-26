@@ -40,6 +40,7 @@ trait ControllerTrait
                 $this->data('path/project')
             )
         );
+        $this->setData('discogs/config', $this->config()->get('discogs'));
     }
 
     protected function requirePostMethod()
