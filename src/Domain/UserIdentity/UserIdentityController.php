@@ -3,19 +3,20 @@ namespace Project\Domain\UserIdentity;
 
 class UserIdentityController extends \Project\AbstractController
 {
-    use \Project\Traits\ControllerApiTrait;
+    use \Project\Traits\ApiTrait;
 
     public function __construct()
     {
         parent::__construct(__NAMESPACE__);
 
         $this->repository = new Repository($this->outputLoader);
+
+        $this->initApi();
     }
 
     public function profile()
     {
         $this->init(__FUNCTION__);
-        $this->initApi();
 
         $apiObject = new \WebServCo\DiscogsApi\User\Identity\Profile(
             $this->api,

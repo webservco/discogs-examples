@@ -3,19 +3,20 @@ namespace Project\Domain\UserCollection;
 
 class UserCollectionController extends \Project\AbstractController
 {
-    use \Project\Traits\ControllerApiTrait;
+    use \Project\Traits\ApiTrait;
 
     public function __construct()
     {
         parent::__construct(__NAMESPACE__);
 
         $this->repository = new Repository($this->outputLoader);
+
+        $this->initApi();
     }
 
     public function fields()
     {
         $this->init(__FUNCTION__);
-        $this->initApi();
 
         $apiObject = new \WebServCo\DiscogsApi\User\Collection\Fields(
             $this->api,
@@ -37,7 +38,6 @@ class UserCollectionController extends \Project\AbstractController
     public function value()
     {
         $this->init(__FUNCTION__);
-        $this->initApi();
 
         $apiObject = new \WebServCo\DiscogsApi\User\Collection\Value(
             $this->api,

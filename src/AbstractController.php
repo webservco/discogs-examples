@@ -3,6 +3,7 @@ namespace Project;
 
 abstract class AbstractController extends \WebServCo\Framework\AbstractController
 {
+    protected $api;
     protected $repository;
 
     use \Project\Traits\ControllerDomainTrait;
@@ -25,5 +26,7 @@ abstract class AbstractController extends \WebServCo\Framework\AbstractControlle
 
         $this->initViews($namespace);
         $this->initI18n();
+
+        $this->initDiscogs();
     }
 }

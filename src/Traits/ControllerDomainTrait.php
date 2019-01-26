@@ -25,14 +25,6 @@ trait ControllerDomainTrait
             )
         );
 
-        $this->config()->add(
-            'discogs',
-            $this->config()->load(
-                'Discogs',
-                $this->data('path/project')
-            )
-        );
-
         $this->setData('location/current', $this->request()->getTarget());
     }
 }
