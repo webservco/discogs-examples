@@ -14,3 +14,8 @@ $theme-colors: (
 @import "node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
 @import "node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
 /* */
+
+/* Utility classes */
+.c-pointer {
+    cursor: pointer;
+}
