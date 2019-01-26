@@ -2,15 +2,18 @@
 
 return [
     'api' => [
-        'authType' => '', // user, app, oauth
-        'authApp' => [
-            'consumerKey' => '',
-            'consumerSecret' => '',
-        ],
-        'authUser' => [
-            'personalAccessToken' => '',
+        'auth' => [
+            'type' => '', // user, app, oauth
+            'app' => [
+                'consumerKey' => '',
+                'consumerSecret' => '',
+            ],
+            'user' => [
+                'personalAccessToken' => '',
+            ],
         ],
         'settings' => [
+            'debug' => true,
             'processResponse' => true,
             'userAgent' => '',
         ],
