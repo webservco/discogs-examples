@@ -24,12 +24,16 @@ class UserIdentityController extends \Project\AbstractController
         );
 
         try {
-            $result = $apiObject->get();
-            $this->setData('result', $result);
+            $apiResponse = $apiObject->get();
+            $this->setData('result/endpoint', $apiResponse->getEndpoint());
+            $this->setData('result/errorMessage', $apiResponse->getErrorMessage());
+            $this->setData('result/data', $apiResponse->getData());
+            $this->setData('result/method', $apiResponse->getMethod());
+            $this->setData('result/status', $apiResponse->getStatus());
         } catch (\WebServCo\DiscogsAuth\Exceptions\AuthException $e) {
-            $this->setData('error/auth', $e->getMessage());
+            $this->setData('result/errorMessage', sprintf('AuthException: %s', $e->getMessage()));
         } catch (\WebServCo\DiscogsApi\Exceptions\ApiException $e) {
-            $this->setData('error/api', $e->getMessage());
+            $this->setData('result/errorMessage', sprintf('ApiException: %s', $e->getMessage()));
         }
 
         return $this->outputHtml($this->getData(), 'api/result');

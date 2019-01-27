@@ -15,7 +15,7 @@
                 'Oauth/accessToken' => sprintf('%s 4: %s', __('Step'), __('Get access token')),
                 'Oauth/identity' => sprintf('%s 5: %s', __('Step'), __('Verify identity')),
                 ] as $location => $title) { ?>
-                <a class="app-nav dropdown-item" href="<?=$this->data('url/app', '/')?><?=$location?>"><?=$title?></a>
+                <a class="<?=$location!='Oauth/redirect'?'app-nav ':''?>dropdown-item" href="<?=$this->data('url/app', '/')?><?=$location?>"><?=$title?></a>
             <?php } ?>
             </div>
         </li>

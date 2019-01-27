@@ -10,7 +10,7 @@
         'Oauth/accessToken' => sprintf('%s 4: %s', __('Step'), __('Get access token')),
         'Oauth/identity' => sprintf('%s 5: %s', __('Step'), __('Verify identity')),
         ] as $location => $title) { ?>
-    <a href="<?=$this->data('url/app', '/')?><?=$location?>" class="app-nav list-group-item list-group-item-action"><?=$title?></a>
+    <a href="<?=$this->data('url/app', '/')?><?=$location?>" class="<?=$location!='Oauth/redirect'?'app-nav ':''?>list-group-item list-group-item-action"><?=$title?></a>
     <?php } ?>
 </div>
 
