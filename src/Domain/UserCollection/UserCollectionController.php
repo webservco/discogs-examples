@@ -32,7 +32,7 @@ class UserCollectionController extends \Project\AbstractController
             $this->setData('error/api', $e->getMessage());
         }
 
-        return $this->outputHtml($this->getData(), 'apiResult');
+        return $this->outputHtml($this->getData(), 'api/result');
     }
 
     public function value()
@@ -53,6 +53,6 @@ class UserCollectionController extends \Project\AbstractController
             $this->setData('error/api', $e->getMessage());
         }
 
-        return $this->outputHtml($this->getData(), 'apiResult');
+        return $this->outputHtml($this->getData(), 'api/result');
     }
 }

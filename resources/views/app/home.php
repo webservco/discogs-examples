@@ -33,3 +33,14 @@
         ] as $location => $title) { ?>
     <a href="<?=$this->data('url/app', '/')?><?=$location?>" class="app-nav list-group-item list-group-item-action"><?=$title?></a>
     <?php } ?>
+</div>
+
+<hr>
+<h2><?=__('API')?></h2>
+<div class="list-group">
+    <?php foreach ([
+        'Api/custom' => __('Custom API call'),
+        ] as $location => $title) { ?>
+    <a href="<?=$this->data('url/app', '/')?><?=$location?>" class="app-nav list-group-item list-group-item-action"><?=$title?></a>
+    <?php } ?>
+</div>

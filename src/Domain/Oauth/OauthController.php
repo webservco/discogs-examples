@@ -42,7 +42,7 @@ class OauthController extends \Project\AbstractController
             $this->setData('error/api', $e->getMessage());
         }
 
-        return $this->outputHtml($this->getData(), 'apiResult');
+        return $this->outputHtml($this->getData(), 'api/result');
     }
 
     public function callback() // step 3
@@ -69,7 +69,7 @@ class OauthController extends \Project\AbstractController
             $this->setData('error/api', $e->getMessage());
         }
 
-        return $this->outputHtml($this->getData(), 'apiResult');
+        return $this->outputHtml($this->getData(), 'api/result');
     }
 
     public function redirect() // step 3
@@ -110,6 +110,6 @@ class OauthController extends \Project\AbstractController
             $this->setData('error/api', $e->getMessage());
         }
 
-        return $this->outputHtml($this->getData(), 'apiResult');
+        return $this->outputHtml($this->getData(), 'api/result');
     }
 }

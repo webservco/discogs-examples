@@ -41,6 +41,9 @@
             <?php } ?>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="app-nav nav-link" href="<?=$this->data('url/app', '/')?>Api/custom"><?=__('Custom API call')?></a>
+        </li>
     </ul>
 </div>
 </nav>

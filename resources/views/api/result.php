@@ -1,7 +1,33 @@
-<h1>
-    <?=__('API Result')?>
-    <span class="badge badge-secondary font-weight-lighter"><?=$this->data('location/current')?></span>
-</h1>
+<h1><?=__('API Result')?></h1>
+
+<div class="row">
+    <div class="col-md-1 py-1">
+        <?=__('Endpoint')?>
+    </div>
+    <div class="col-md-auto py-1">
+        <samp class="bg-light rounded p-2"><?=$this->data('result/endpoint')?></samp>
+    </div>
+
+    <div class="w-100"></div>
+
+    <div class="col-md-1 py-1">
+        <?=__('Method')?>
+    </div>
+    <div class="col-md-auto py-1">
+        <samp class="bg-light rounded p-2"><?=$this->data('result/method')?></samp>
+    </div>
+
+    <div class="w-100"></div>
+
+    <div class="col-md-1 py-1">
+        <?=__('Status')?>
+    </div>
+    <div class="col-md-auto py-1">
+        <samp class="bg-light rounded p-2"><?=$this->data('result/status')?></samp>
+    </div>
+</div>
+
+<hr>
 
 <div class="accordion" id="apiResult">
 
@@ -13,16 +39,14 @@
         </div>
         <div class="collapse show" id="responseContent" aria-labelledby="responseHeader" data-parent="#apiResult">
             <div class="card-body">
-                <?php if ($this->data('error')) { ?>
+                <?php if ($this->data('result/errorMessage')) { ?>
                     <div class="alert alert-danger" role="alert">
-                        <?php foreach ($this->data('error') as $title => $message) { ?>
-                            <h3><?=__('Error')?> <span class="badge badge-danger font-weight-lighter"><?=$title?></span></h3>
-                            <pre><samp><?=$message?></samp></pre>
-                        <?php } ?>
+                        <h3><?=__('Error')?></h3>
+                        <samp><?=$this->data('result/errorMessage')?></samp>
                     </div>
-                <?php } else { ?>
+                <?php } else if ($this->data('result/data')) { ?>
                     <div class="alert alert-success" role="alert">
-                        <pre><samp><?php var_dump($this->data('result')) ?></samp></pre>
+                        <pre><samp><?php var_dump($this->data('result/data')) ?></samp></pre>
                     </div>
                 <?php } ?>
             </div>
