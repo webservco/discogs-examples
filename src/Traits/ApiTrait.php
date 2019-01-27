@@ -8,8 +8,9 @@ trait ApiTrait
     protected function initApi()
     {
         $this->api = \WebServCo\DiscogsApi\ApiHelper::init(
-            $this->config()->get('discogs/api'),
-            $this->config()->get('app/path/log')
+            $this->config()->get('discogs/api'), // $apiConfig
+            $this->config()->get('app/path/log'), // $logPath
+            sprintf('%svar/tmp', $this->config()->get('app/path/project')) // $tmpPath
         );
     }
 }
