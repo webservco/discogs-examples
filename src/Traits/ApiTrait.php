@@ -5,6 +5,8 @@ trait ApiTrait
 {
     protected $api;
 
+    abstract protected function config();
+
     protected function initApi()
     {
         $this->api = \WebServCo\DiscogsApi\ApiHelper::init(
