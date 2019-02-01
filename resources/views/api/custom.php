@@ -35,4 +35,19 @@
             <button type="submit" name="submit" class="btn btn-primary mb-2"><?=__('Submit')?></button>
         </div>
     </div>
+    <div class="form-row">
+        <div class="col-md-10">
+            <label class="sr-only" for="postData"><?=$this->data('form/meta/postData')?></label>
+            <textarea class="form-control<?=$this->data('form/errors/postData')?' is-invalid':''?>"
+                id="postData" name="postData" placeholder="<?=$this->data('form/meta/postData')?>"
+                aria-describedby="postDataHelp"
+                rows="3"<?=$this->data('form/required/postData')?' required':''?>><?=$this->data('form/data/postData')?></textarea>
+            <?php if ($this->data('form/errors/postData')) { ?>
+                <div class="invalid-feedback">
+                <?=implode(', ', $this->data('form/errors/postData'))?>
+                </div>
+            <?php } ?>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 </form>

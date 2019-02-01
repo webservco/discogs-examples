@@ -10,6 +10,7 @@ final class ApiForm extends \Project\AbstractForm
                 'meta' => [
                     'endpoint' => 'Endpoint',
                     'method' => 'Method',
+                    'postData' => 'POST data',
                 ],
                 'required' => [
                     'endpoint',
