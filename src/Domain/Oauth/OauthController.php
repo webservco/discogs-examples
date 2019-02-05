@@ -2,8 +2,8 @@
 namespace Project\Domain\Oauth;
 
 use WebServCo\DiscogsApi\Exceptions\ApiException;
-use WebServCo\DiscogsAuth\Exceptions\AuthException;
 use WebServCo\DiscogsApi\Exceptions\ApiResponseException;
+use WebServCo\DiscogsAuth\Exceptions\AuthException;
 
 class OauthController extends \Project\AbstractController
 {

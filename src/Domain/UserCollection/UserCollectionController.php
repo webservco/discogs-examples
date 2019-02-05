@@ -2,8 +2,8 @@
 namespace Project\Domain\UserCollection;
 
 use WebServCo\DiscogsApi\Exceptions\ApiException;
-use WebServCo\DiscogsAuth\Exceptions\AuthException;
 use WebServCo\DiscogsApi\Exceptions\ApiResponseException;
+use WebServCo\DiscogsAuth\Exceptions\AuthException;
 
 class UserCollectionController extends \Project\AbstractController
 {
