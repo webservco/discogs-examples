@@ -1,6 +1,10 @@
 <?php
 namespace Project\Domain\UserCollection;
 
+use WebServCo\DiscogsApi\Exceptions\ApiException;
+use WebServCo\DiscogsAuth\Exceptions\AuthException;
+use WebServCo\DiscogsApi\Exceptions\ApiResponseException;
+
 class UserCollectionController extends \Project\AbstractController
 {
     use \Project\Traits\DiscogsApiTrait;
@@ -30,10 +34,12 @@ class UserCollectionController extends \Project\AbstractController
             $this->setData('result/data', $apiResponse->getData());
             $this->setData('result/method', $apiResponse->getMethod());
             $this->setData('result/status', $apiResponse->getStatus());
-        } catch (\WebServCo\DiscogsAuth\Exceptions\AuthException $e) {
+        } catch (AuthException $e) {
             $this->setData('result/errorMessage', sprintf('AuthException: %s', $e->getMessage()));
-        } catch (\WebServCo\DiscogsApi\Exceptions\ApiException $e) {
+        } catch (ApiException $e) {
             $this->setData('result/errorMessage', sprintf('ApiException: %s', $e->getMessage()));
+        } catch (ApiResponseException $e) { // used when handleResponse = true
+            $this->setData('result/errorMessage', sprintf('ApiResponseException: %s', $e->getMessage()));
         }
 
         return $this->outputHtml($this->getData(), 'api/result');
@@ -55,10 +61,12 @@ class UserCollectionController extends \Project\AbstractController
             $this->setData('result/data', $apiResponse->getData());
             $this->setData('result/method', $apiResponse->getMethod());
             $this->setData('result/status', $apiResponse->getStatus());
-        } catch (\WebServCo\DiscogsAuth\Exceptions\AuthException $e) {
+        } catch (AuthException $e) {
             $this->setData('result/errorMessage', sprintf('AuthException: %s', $e->getMessage()));
-        } catch (\WebServCo\DiscogsApi\Exceptions\ApiException $e) {
+        } catch (ApiException $e) {
             $this->setData('result/errorMessage', sprintf('ApiException: %s', $e->getMessage()));
+        } catch (ApiResponseException $e) { // used when handleResponse = true
+            $this->setData('result/errorMessage', sprintf('ApiResponseException: %s', $e->getMessage()));
         }
 
         return $this->outputHtml($this->getData(), 'api/result');
