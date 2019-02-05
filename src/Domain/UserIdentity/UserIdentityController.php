@@ -3,7 +3,7 @@ namespace Project\Domain\UserIdentity;
 
 class UserIdentityController extends \Project\AbstractController
 {
-    use \Project\Traits\ApiTrait;
+    use \Project\Traits\DiscogsApiTrait;
 
     public function __construct()
     {
@@ -11,7 +11,7 @@ class UserIdentityController extends \Project\AbstractController
 
         $this->repository = new Repository($this->outputLoader);
 
-        $this->initApi();
+        $this->initDiscogsApi();
     }
 
     public function profile()

@@ -6,6 +6,7 @@ abstract class AbstractController extends \WebServCo\Framework\AbstractControlle
     protected $api;
     protected $repository;
 
+    use \Project\Traits\ControllerDiscogsTrait;
     use \Project\Traits\ControllerDomainTrait;
     use \Project\Traits\ControllerI18nTrait;
     use \Project\Traits\ControllerMetaDomainTrait;
@@ -27,6 +28,6 @@ abstract class AbstractController extends \WebServCo\Framework\AbstractControlle
         $this->initViews($namespace);
         $this->initI18n();
 
-        $this->initDiscogs();
+        $this->initDiscogsConfig();
     }
 }

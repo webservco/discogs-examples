@@ -28,21 +28,6 @@ trait ControllerTrait
         $this->initMeta($action);
     }
 
-    /*
-    * Loads Discogs configuration array.
-    */
-    protected function initDiscogs()
-    {
-        $this->config()->add(
-            'discogs',
-            $this->config()->load(
-                'Discogs',
-                $this->data('path/project')
-            )
-        );
-        $this->setData('discogs/config', $this->config()->get('discogs'));
-    }
-
     protected function requirePostMethod()
     {
         if (\WebServCo\Framework\Http\Method::POST != $this->request()->getMethod()) {

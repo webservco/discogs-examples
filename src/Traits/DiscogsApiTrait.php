@@ -1,13 +1,13 @@
 <?php
 namespace Project\Traits;
 
-trait ApiTrait
+trait DiscogsApiTrait
 {
     protected $api;
 
     abstract protected function config();
 
-    protected function initApi()
+    protected function initDiscogsApi()
     {
         $this->api = \WebServCo\DiscogsApi\ApiHelper::init(
             $this->config()->get('discogs/api'), // $apiConfig

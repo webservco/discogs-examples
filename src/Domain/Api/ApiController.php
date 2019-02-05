@@ -5,7 +5,7 @@ use WebServCo\Framework\Http\Method;
 
 class ApiController extends \Project\AbstractController
 {
-    use \Project\Traits\ApiTrait;
+    use \Project\Traits\DiscogsApiTrait;
 
     public function __construct()
     {
@@ -13,7 +13,7 @@ class ApiController extends \Project\AbstractController
 
         $this->repository = new Repository($this->outputLoader);
 
-        $this->initApi();
+        $this->initDiscogsApi();
     }
 
     public function custom()
