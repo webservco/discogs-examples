@@ -3,6 +3,7 @@ function initialise() {
     dataTableServerSide(
         "#datatables-simple",
         urlApp + "DataTables/datatables/simple",
+        urlApp + "DataTables/details/",
         [
             { "data": "id" },
             { "data": "name" },
@@ -13,6 +14,7 @@ function initialise() {
     dataTableServerSide(
         "#datatables-database",
         urlApp + "DataTables/datatables/database",
+        urlApp + "DataTables/details/",
         [
             { "data": "id" },
             { "data": "name" },

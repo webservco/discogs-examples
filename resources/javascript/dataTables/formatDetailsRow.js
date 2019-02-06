@@ -1,10 +1,11 @@
-function formatDetailsRow(rowData) {
+function formatDetailsRow(detailsUrl, rowData) {
 
     var div = $('<div/>')
         .addClass( 'loading' )
         .text( 'Loading...' );
 
-    div.load(urlApp + "DataTables/details/" + rowData.DT_RowId + " #content", function(response, status, xhr) {
+    /* detailsUrl example: urlApp + "Controller/details/", */
+    div.load(detailsUrl + rowData.DT_RowId + " #content", function(response, status, xhr) {
 
     }).removeClass( 'loading' );
 

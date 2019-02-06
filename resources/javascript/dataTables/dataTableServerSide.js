@@ -1,4 +1,4 @@
-function dataTableServerSide(tableIdentifier, url, columns, order) {
+function dataTableServerSide(tableIdentifier, listUrl, detailsUrl, columns, order) {
     if ($(tableIdentifier).length) {
 
         /* before DT init*/
@@ -20,7 +20,7 @@ function dataTableServerSide(tableIdentifier, url, columns, order) {
         );
         var dataTableServerSide = $(tableIdentifier).DataTable({
             "ajax": {
-                "url": url,
+                "url": listUrl,
                 "type": "POST"
             },
             "columns": columns,
@@ -76,7 +76,7 @@ function dataTableServerSide(tableIdentifier, url, columns, order) {
                 row.child.hide();
                 tr.removeClass('shown');
             } else {
-                row.child( formatDetailsRow(row.data()) ).show();
+                row.child( formatDetailsRow(detailsUrl, row.data()) ).show();
                 tr.addClass('shown');
             }
         });
