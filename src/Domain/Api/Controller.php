@@ -3,7 +3,7 @@ namespace Project\Domain\Api;
 
 use WebServCo\Framework\Http\Method;
 
-class ApiController extends \Project\AbstractController
+class Controller extends \Project\AbstractController
 {
     use \Project\Traits\DiscogsApiTrait;
 

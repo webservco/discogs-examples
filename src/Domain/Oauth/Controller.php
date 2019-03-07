@@ -5,7 +5,7 @@ use WebServCo\DiscogsApi\Exceptions\ApiException;
 use WebServCo\DiscogsApi\Exceptions\ApiResponseException;
 use WebServCo\DiscogsAuth\Exceptions\AuthException;
 
-class OauthController extends \Project\AbstractController
+class Controller extends \Project\AbstractController
 {
     use \Project\Traits\DiscogsApiTrait;
 

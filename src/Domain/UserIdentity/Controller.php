@@ -1,7 +1,7 @@
 <?php
 namespace Project\Domain\UserIdentity;
 
-class UserIdentityController extends \Project\AbstractController
+class Controller extends \Project\AbstractController
 {
     use \Project\Traits\DiscogsApiTrait;
 
