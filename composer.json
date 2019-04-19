@@ -17,6 +17,7 @@
     "require" : {
         "php" : "^5.4 || ^7.0",
         "webservco/framework" : "@dev",
+        "webservco/api" : "@dev",
         "webservco/discogs-auth" : "@dev",
         "webservco/discogs-api" : "@dev"
     },
