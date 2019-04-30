@@ -1,6 +1,8 @@
 <?php
 namespace Project;
 
+use WebServCo\Framework\Log\FileLogger;
+
 final class App extends \WebServCo\Framework\Application
 {
     public function __construct($pathPublic, $pathProject = null)
@@ -21,15 +23,7 @@ final class App extends \WebServCo\Framework\Application
      */
     protected function haltHttp($errorInfo = [])
     {
-        $logger = new \WebServCo\Framework\Log\FileLogger(
-            'error',
-            $this->config()->get('app/path/log'),
-            $this->request()
-        );
-        $logger->error(
-            sprintf('Error: %s in %s:%s', $errorInfo['message'], $errorInfo['file'], $errorInfo['line']),
-            [] /* $errorInfo */
-        );
+        $this->logError($errorInfo, false);
         return parent::haltHttp($errorInfo);
     }
 
@@ -38,6 +32,32 @@ final class App extends \WebServCo\Framework\Application
      */
     protected function haltCli($errorInfo = [])
     {
+        $this->logError($errorInfo, true);
         return parent::haltCli($errorInfo);
+    }
+
+    protected function logError($errorInfo, $isCli = false)
+    {
+        $logger = new FileLogger(
+            sprintf('error%s', $isCli ? 'CLI' : ''),
+            $this->config()->get('app/path/log'),
+            $this->request()
+        );
+        $errorMessage = sprintf('Error: %s in %s:%s', $errorInfo['message'], $errorInfo['file'], $errorInfo['line']);
+        if ($errorInfo['exception'] instanceof \Exception) {
+            $previous = $errorInfo['exception']->getPrevious();
+            if ($previous instanceof \Exception) {
+                do {
+                    $errorMessage .= sprintf(
+                        '%sPrevious: %s in %s:%s',
+                        PHP_EOL,
+                        $previous->getMessage(),
+                        $previous->getFile(),
+                        $previous->getLine()
+                    );
+                } while ($previous = $previous->getPrevious());
+            }
+        }
+        $logger->error($errorMessage, []);
     }
 }
