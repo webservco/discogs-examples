@@ -31,7 +31,8 @@ class Controller extends \Project\AbstractController
                         $apiResponse = $this->api->get($form->data('endpoint')); // \WebServCo\DiscogsApi\ApiResponse
                         break;
                     case Method::POST:
-                        $apiResponse = $this->api->post($form->data('endpoint'), $form->data('postData')); // \WebServCo\DiscogsApi\ApiResponse
+                        // \WebServCo\DiscogsApi\ApiResponse
+                        $apiResponse = $this->api->post($form->data('endpoint'), $form->data('postData'));
                         break;
                     default:
                         throw new \WebServCo\Framework\Exceptions\NotImplementedException('Method not implemented');
