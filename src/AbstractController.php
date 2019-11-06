@@ -18,10 +18,11 @@ abstract class AbstractController extends \WebServCo\Framework\AbstractControlle
 
     public function __construct($namespace)
     {
-        $this->initPaths();
-
-        $outputLoader = new \Project\OutputLoader($this->data('path/project'));
+        // no library code before calling the parent constructor
+        $outputLoader = new OutputLoader($this->config()->get('app/path/project'));
         parent::__construct($outputLoader);
+
+        $this->setupPaths();
 
         $this->session()->start($this->data('path/project') . 'var/sessions');
 
