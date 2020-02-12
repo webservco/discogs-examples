@@ -11,11 +11,6 @@ trait ControllerDomainTrait
 
     protected function initDomain()
     {
-        /*  use debug only in development mode (localhost) */
-        if ($this->config()->getEnv() == \WebServCo\Framework\Environment::ENV_DEV) {
-            $this->setData('useDebug', true);
-        }
-
         /* custom configuration settings */
         $this->config()->add(
             'app',
