@@ -68,15 +68,19 @@ function dataTableServerSide(tableIdentifier, listUrl, detailsUrl, columns, orde
             }
         });
 
-        /* extra row details */
+        /* row details */
         $(tableIdentifier + ' tbody').on('click', 'td.details-control', function () {
-            var tr = $(this).closest('tr');
+            var tr = $(this).parent('tr');
             var row = dataTableServerSide.row( tr );
             if ( row.child.isShown() ) {
                 row.child.hide();
                 tr.removeClass('shown');
             } else {
-                row.child( formatDetailsRow(detailsUrl, row.data()) ).show();
+                if(row.child() && row.child().length) {
+                    row.child.show();
+                } else {
+                    row.child( formatDetailsRow(detailsUrl, row.data()) ).show();
+                }
                 tr.addClass('shown');
             }
         });
