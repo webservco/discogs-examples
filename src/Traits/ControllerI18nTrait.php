@@ -1,6 +1,8 @@
 <?php
 namespace Project\Traits;
 
+use WebServCo\Framework\Framework;
+
 trait ControllerI18nTrait
 {
     abstract protected function i18n();
@@ -19,8 +21,12 @@ trait ControllerI18nTrait
     {
         /**
          * Get language set by session.
-         */
-        $lang = $this->session()->get('i18n/language');
+        */
+        if (!Framework::isCli()) { // no session in CLI
+            $lang = $this->session()->get('i18n/language');
+        } else {
+            $lang = null;
+        }
 
         $this->i18n()->init($this->data('path/project'), $lang);
 
@@ -60,7 +66,9 @@ trait ControllerI18nTrait
 
     protected function setLanguage($lang)
     {
-        $this->session()->set('i18n/language', $lang);
+        if (!Framework::isCli()) { // no session in CLI
+            $this->session()->set('i18n/language', $lang);
+        }
         $this->i18n()->setLanguage($lang);
         return true;
     }

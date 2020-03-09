@@ -24,7 +24,9 @@ abstract class AbstractController extends \WebServCo\Framework\AbstractControlle
 
         $this->setupPaths();
 
-        $this->session()->start($this->data('path/project') . 'var/sessions');
+        if (!\WebServCo\Framework\Framework::isCli()) { // no session in CLI
+            $this->session()->start($this->data('path/project') . 'var/sessions');
+        }
 
         $this->initViews($namespace);
         $this->initI18n();
