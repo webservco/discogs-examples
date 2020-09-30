@@ -24,7 +24,7 @@ return [
         /**
          * Send cookie only over secure connections.
          */
-         'secure' => false,
+         'secure' => true,
         /**
          * Set httponly flag
          */
