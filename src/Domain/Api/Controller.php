@@ -36,7 +36,6 @@ class Controller extends \Project\AbstractController
                         break;
                     default:
                         throw new \WebServCo\Framework\Exceptions\NotImplementedException('Method not implemented');
-                        break;
                 }
                 $this->setData('result/endpoint', $apiResponse->getEndpoint());
                 $this->setData('result/errorMessage', $apiResponse->getErrorMessage());

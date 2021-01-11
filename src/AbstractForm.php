@@ -24,5 +24,10 @@ abstract class AbstractForm extends \WebServCo\Framework\AbstractForm
                 );
             }
         }
+        if (!empty($this->errors)) {
+            return false;
+        }
+
+        return true;
     }
 }

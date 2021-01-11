@@ -8,7 +8,6 @@ trait ControllerMetaDomainTrait
         switch ($action) {
             default:
                 return $this->getDefaultMeta();
-                break;
         }
     }
 
