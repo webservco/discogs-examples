@@ -16,7 +16,7 @@
     ],
     "require" : {
         "php" : "^7.1",
-        "webservco/framework" : "@dev",
+        "webservco/framework" : "^9.79.0",
         "webservco/api" : "@dev",
         "webservco/discogs-auth" : "@dev",
         "webservco/discogs-api" : "@dev"
@@ -40,8 +40,8 @@
         "test:d" : "vendor/bin/phpunit --testdox",
         "check:structure" : "pds-skeleton validate .",
         "check" : "phpcs --standard=PSR2 --extensions=php config public src tests",
-        "s:7": "phpstan analyse src tests --level=7 --ansi -c phpstan.neon",
-        "all": "clear && composer s:7 && composer check && composer test",
+        "s:5": "phpstan analyse src tests --level=5 --ansi -c phpstan.neon",
+        "all": "clear && composer s:5 && composer check && composer test",
         "check:devel": "grep -rnF 'XXX' config public resources src"
     }
 }
