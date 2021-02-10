@@ -20,7 +20,11 @@ class Controller extends \Project\AbstractController
     {
         $this->init(__FUNCTION__);
 
-        $form = new ApiForm([$this->data('defaultEndpoint')]);
+        $form = new ApiForm(
+            [
+                'endpoint' => $this->data('defaultEndpoint')
+            ]
+        );
 
         $template = $this->getView(__FUNCTION__);
 

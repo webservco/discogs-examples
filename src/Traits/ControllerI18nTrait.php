@@ -8,7 +8,15 @@ trait ControllerI18nTrait
     abstract protected function i18n();
     abstract protected function request();
     abstract protected function session();
-    abstract protected function setData($key, $value);
+    
+    /**
+     * @param mixed $key Can be an array, a string,
+     *                          or a special formatted string
+     *                          (eg 'app/path/project').
+     * @param mixed $value The value to be stored.
+     * @return bool True on success and false on failure.
+     */
+    abstract protected function setData($key, $value): bool;
 
     protected function initI18n()
     {

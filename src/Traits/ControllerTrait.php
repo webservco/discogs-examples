@@ -5,11 +5,26 @@ use WebServCo\Framework\Exceptions\ApplicationException;
 
 trait ControllerTrait
 {
-    abstract public function data($key, $defaultValue = false);
+    /**
+     * Returns data if exists, $defaultValue otherwise.
+     *
+     * @param mixed $defaultValue
+     * @return mixed
+     */
+    abstract public function data(string $key, $defaultValue = false);
+
     abstract protected function initDomain();
     abstract protected function initMeta($action);
     abstract protected function request();
-    abstract protected function setData($key, $value);
+
+    /**
+     * @param mixed $key Can be an array, a string,
+     *                          or a special formatted string
+     *                          (eg 'app/path/project').
+     * @param mixed $value The value to be stored.
+     * @return bool True on success and false on failure.
+     */
+    abstract protected function setData($key, $value): bool;
 
     protected function setupPaths()
     {

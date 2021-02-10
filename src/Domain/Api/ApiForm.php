@@ -27,7 +27,7 @@ final class ApiForm extends \Project\AbstractForm
         );
     }
 
-    protected function validate()
+    protected function validate(): bool
     {
         parent::validate();
 

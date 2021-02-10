@@ -3,7 +3,7 @@ namespace Project;
 
 abstract class AbstractForm extends \WebServCo\Framework\AbstractForm
 {
-    protected function filter()
+    protected function filter(): bool
     {
         foreach ($this->setting('trim', []) as $item) {
             $this->setData($item, trim($this->data($item)));
@@ -14,7 +14,7 @@ abstract class AbstractForm extends \WebServCo\Framework\AbstractForm
         return true;
     }
 
-    protected function validate()
+    protected function validate(): bool
     {
         foreach ($this->setting('required', []) as $item) {
             if (empty($this->data($item))) {

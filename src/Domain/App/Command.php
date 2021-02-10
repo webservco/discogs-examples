@@ -22,6 +22,6 @@ final class Command extends \Project\AbstractController
         $this->outputCli();
         $this->outputCli('Hello World!');
         $this->outputCli();
-        return new \WebServCo\Framework\Cli\Response('', true);
+        return new \WebServCo\Framework\Cli\Response();
     }
 }
