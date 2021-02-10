@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types = 1);
+
 namespace Project\Domain\UserCollection;
 
 use WebServCo\DiscogsApi\Exceptions\ApiException;

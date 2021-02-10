@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types = 1);
+
 namespace Project;
 
 abstract class AbstractRepository extends \WebServCo\Framework\AbstractRepository

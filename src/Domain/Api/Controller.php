@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types = 1);
+
 namespace Project\Domain\Api;
 
 use WebServCo\Framework\Http\Method;
