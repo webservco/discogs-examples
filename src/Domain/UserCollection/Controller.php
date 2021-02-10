@@ -40,7 +40,7 @@ class Controller extends \Project\AbstractController
             $this->setData('result/errorMessage', \sprintf('AuthException: %s', $e->getMessage()));
         } catch (ApiException $e) {
             $this->setData('result/errorMessage', \sprintf('ApiException: %s', $e->getMessage()));
-        } catch (ApiResponseException $e) { // used when handleResponse = true
+        } catch (ApiResponseException $e) {
             $this->setData('result/errorMessage', \sprintf('ApiResponseException: %s', $e->getMessage()));
         }
 
@@ -67,7 +67,7 @@ class Controller extends \Project\AbstractController
             $this->setData('result/errorMessage', \sprintf('AuthException: %s', $e->getMessage()));
         } catch (ApiException $e) {
             $this->setData('result/errorMessage', \sprintf('ApiException: %s', $e->getMessage()));
-        } catch (ApiResponseException $e) { // used when handleResponse = true
+        } catch (ApiResponseException $e) { 
             $this->setData('result/errorMessage', \sprintf('ApiResponseException: %s', $e->getMessage()));
         }
 

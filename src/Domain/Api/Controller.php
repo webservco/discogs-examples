@@ -52,7 +52,7 @@ class Controller extends \Project\AbstractController
                 $this->setData('result/errorMessage', \sprintf('AuthException: %s', $e->getMessage()));
             } catch (\WebServCo\DiscogsApi\Exceptions\ApiException $e) { // General API error
                 $this->setData('result/errorMessage', \sprintf('ApiException: %s', $e->getMessage()));
-            } catch (\WebServCo\DiscogsApi\Exceptions\ApiResponseException $e) { // used when handleResponse = true
+            } catch (\WebServCo\DiscogsApi\Exceptions\ApiResponseException $e) { // used by response handler
                 $this->setData('result/errorMessage', \sprintf('ApiResponseException: %s', $e->getMessage()));
             } finally {
                 $template = 'api/result';
