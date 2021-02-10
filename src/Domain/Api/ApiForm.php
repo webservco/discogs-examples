@@ -4,6 +4,7 @@ namespace Project\Domain\Api;
 
 final class ApiForm extends \Project\AbstractForm
 {
+
     public function __construct($defaultData = [])
     {
         parent::__construct(

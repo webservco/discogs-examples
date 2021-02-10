@@ -4,6 +4,7 @@ namespace Project\Traits;
 
 trait ControllerViewTrait
 {
+
     /**
      * Returns data if exists, $defaultValue otherwise.
      *
@@ -21,14 +22,14 @@ trait ControllerViewTrait
      */
     abstract protected function setData($key, $value): bool;
 
-    protected function initViews($namespace)
+    protected function initViews($namespace): void
     {
-        $parts = explode('\\', $namespace);
-        $this->setData('dir/views', strtolower((string) end($parts)));
+        $parts = \explode('\\', $namespace);
+        $this->setData('dir/views', \strtolower((string) \end($parts)));
     }
 
     protected function getView($templateName)
     {
-        return sprintf('%s/%s', $this->data('dir/views'), $templateName);
+        return \sprintf('%s/%s', $this->data('dir/views'), $templateName);
     }
 }

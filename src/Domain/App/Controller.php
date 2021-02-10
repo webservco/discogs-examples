@@ -4,6 +4,7 @@ namespace Project\Domain\App;
 
 final class Controller extends \Project\AbstractController
 {
+
     public function __construct()
     {
         parent::__construct(__NAMESPACE__);

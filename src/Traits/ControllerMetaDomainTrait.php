@@ -4,6 +4,7 @@ namespace Project\Traits;
 
 trait ControllerMetaDomainTrait
 {
+
     protected function getMeta($action)
     {
         switch ($action) {
@@ -16,7 +17,7 @@ trait ControllerMetaDomainTrait
     {
         return [
             'title' => 'Discogs Examples',
-            'description' => __('Discogs libraries implementation examples.'),
+            'description' => \__('Discogs libraries implementation examples.'),
         ];
     }
 }

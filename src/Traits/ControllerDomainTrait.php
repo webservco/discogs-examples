@@ -2,11 +2,8 @@
 
 namespace Project\Traits;
 
-use WebServCo\Framework\Exceptions\ApplicationException;
-
 trait ControllerDomainTrait
 {
-    abstract protected function config();
 
     /**
      * Returns data if exists, $defaultValue otherwise.
@@ -15,6 +12,8 @@ trait ControllerDomainTrait
      * @return mixed
      */
     abstract public function data(string $key, $defaultValue = false);
+
+    abstract protected function config();
 
     /**
      * @param mixed $key Can be an array, a string,
@@ -25,7 +24,7 @@ trait ControllerDomainTrait
      */
     abstract protected function setData($key, $value): bool;
 
-    protected function initDomain()
+    protected function initDomain(): void
     {
         /* custom configuration settings */
         $this->config()->add(

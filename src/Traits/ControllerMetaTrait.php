@@ -4,6 +4,7 @@ namespace Project\Traits;
 
 trait ControllerMetaTrait
 {
+
     abstract protected function getMeta($action);
     
     /**
@@ -15,7 +16,7 @@ trait ControllerMetaTrait
      */
     abstract protected function setData($key, $value): bool;
 
-    protected function initMeta($action)
+    protected function initMeta($action): void
     {
         $this->setData('meta', $this->getMeta($action));
     }

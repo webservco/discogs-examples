@@ -6,6 +6,7 @@ use WebServCo\Framework\Exceptions\ApplicationException;
 
 trait ControllerTrait
 {
+
     /**
      * Returns data if exists, $defaultValue otherwise.
      *
@@ -15,7 +16,9 @@ trait ControllerTrait
     abstract public function data(string $key, $defaultValue = false);
 
     abstract protected function initDomain();
+
     abstract protected function initMeta($action);
+
     abstract protected function request();
 
     /**
@@ -27,7 +30,7 @@ trait ControllerTrait
      */
     abstract protected function setData($key, $value): bool;
 
-    protected function setupPaths()
+    protected function setupPaths(): void
     {
         $this->setData('path', $this->config()->get('app/path'));
         $this->setData('url/app', $this->request()->getAppUrl());
@@ -38,15 +41,15 @@ trait ControllerTrait
     /**
      * Called (optionally) by each method.
      */
-    protected function init($action)
+    protected function init($action): void
     {
         $this->initDomain();
         $this->initMeta($action);
     }
 
-    protected function requirePostMethod()
+    protected function requirePostMethod(): void
     {
-        if (\WebServCo\Framework\Http\Method::POST != $this->request()->getMethod()) {
+        if (\WebServCo\Framework\Http\Method::POST !== $this->request()->getMethod()) {
             throw new ApplicationException('POST method required');
         }
     }

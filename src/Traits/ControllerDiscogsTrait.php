@@ -4,6 +4,7 @@ namespace Project\Traits;
 
 trait ControllerDiscogsTrait
 {
+
     abstract protected function config();
 
     /**
@@ -18,7 +19,7 @@ trait ControllerDiscogsTrait
     /*
     * Loads Discogs configuration array.
     */
-    protected function initDiscogsConfig()
+    protected function initDiscogsConfig(): void
     {
         $this->config()->add(
             'discogs',

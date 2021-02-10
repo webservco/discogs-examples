@@ -7,6 +7,7 @@ use WebServCo\Framework\Cli\Sgr;
 
 final class Command extends \Project\AbstractController
 {
+
     public function __construct()
     {
         parent::__construct(__NAMESPACE__);

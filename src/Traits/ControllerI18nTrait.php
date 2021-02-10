@@ -6,8 +6,11 @@ use WebServCo\Framework\Framework;
 
 trait ControllerI18nTrait
 {
+
     abstract protected function i18n();
+
     abstract protected function request();
+
     abstract protected function session();
     
     /**
@@ -19,7 +22,7 @@ trait ControllerI18nTrait
      */
     abstract protected function setData($key, $value): bool;
 
-    protected function initI18n()
+    protected function initI18n(): void
     {
         $this->setData('i18n/langs', $this->i18n()->getLanguages());
         $this->checkLanguage();
@@ -63,7 +66,7 @@ trait ControllerI18nTrait
          * Check browser accept language.
          */
         $acceptLanguage = $this->request()->getAcceptLanguage();
-        if (!empty($acceptLanguage) && array_key_exists($acceptLanguage, $this->data('i18n/langs'))) {
+        if (!empty($acceptLanguage) && \array_key_exists($acceptLanguage, $this->data('i18n/langs'))) {
             $lang = $acceptLanguage;
         }
 
