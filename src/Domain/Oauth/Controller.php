@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types = 1);
+
 namespace Project\Domain\Oauth;
 
 use WebServCo\DiscogsApi\Exceptions\ApiException;
@@ -7,6 +8,7 @@ use WebServCo\DiscogsAuth\Exceptions\AuthException;
 
 class Controller extends \Project\AbstractController
 {
+
     use \Project\Traits\DiscogsApiTrait;
 
     public function __construct()
@@ -45,11 +47,11 @@ class Controller extends \Project\AbstractController
             $this->setData('result/method', $apiResponse->getMethod());
             $this->setData('result/status', $apiResponse->getStatus());
         } catch (AuthException $e) {
-            $this->setData('result/errorMessage', sprintf('AuthException: %s', $e->getMessage()));
+            $this->setData('result/errorMessage', \sprintf('AuthException: %s', $e->getMessage()));
         } catch (ApiException $e) {
-            $this->setData('result/errorMessage', sprintf('ApiException: %s', $e->getMessage()));
-        } catch (ApiResponseException $e) { // used when handleResponse = true
-            $this->setData('result/errorMessage', sprintf('ApiResponseException: %s', $e->getMessage()));
+            $this->setData('result/errorMessage', \sprintf('ApiException: %s', $e->getMessage()));
+        } catch (ApiResponseException $e) {
+            $this->setData('result/errorMessage', \sprintf('ApiResponseException: %s', $e->getMessage()));
         }
 
         return $this->outputHtml($this->getData(), 'api/result');
@@ -78,11 +80,11 @@ class Controller extends \Project\AbstractController
             $this->setData('result/method', $apiResponse->getMethod());
             $this->setData('result/status', $apiResponse->getStatus());
         } catch (AuthException $e) {
-            $this->setData('result/errorMessage', sprintf('AuthException: %s', $e->getMessage()));
+            $this->setData('result/errorMessage', \sprintf('AuthException: %s', $e->getMessage()));
         } catch (ApiException $e) {
-            $this->setData('result/errorMessage', sprintf('ApiException: %s', $e->getMessage()));
-        } catch (ApiResponseException $e) { // used when handleResponse = true
-            $this->setData('result/errorMessage', sprintf('ApiResponseException: %s', $e->getMessage()));
+            $this->setData('result/errorMessage', \sprintf('ApiException: %s', $e->getMessage()));
+        } catch (ApiResponseException $e) {
+            $this->setData('result/errorMessage', \sprintf('ApiResponseException: %s', $e->getMessage()));
         }
 
         return $this->outputHtml($this->getData(), 'api/result');
@@ -93,7 +95,7 @@ class Controller extends \Project\AbstractController
         $this->init(__FUNCTION__);
 
         return $this->getRedirectUrlResponse(
-            sprintf(
+            \sprintf(
                 'https://discogs.com/oauth/authorize?oauth_token=%s',
                 $this->config()->get('discogs/api/auth/oauth/flow/oauthToken')
             )
@@ -125,11 +127,11 @@ class Controller extends \Project\AbstractController
             $this->setData('result/method', $apiResponse->getMethod());
             $this->setData('result/status', $apiResponse->getStatus());
         } catch (AuthException $e) {
-            $this->setData('result/errorMessage', sprintf('AuthException: %s', $e->getMessage()));
+            $this->setData('result/errorMessage', \sprintf('AuthException: %s', $e->getMessage()));
         } catch (ApiException $e) {
-            $this->setData('result/errorMessage', sprintf('ApiException: %s', $e->getMessage()));
-        } catch (ApiResponseException $e) { // used when handleResponse = true
-            $this->setData('result/errorMessage', sprintf('ApiResponseException: %s', $e->getMessage()));
+            $this->setData('result/errorMessage', \sprintf('ApiException: %s', $e->getMessage()));
+        } catch (ApiResponseException $e) { 
+            $this->setData('result/errorMessage', \sprintf('ApiResponseException: %s', $e->getMessage()));
         }
 
         return $this->outputHtml($this->getData(), 'api/result');

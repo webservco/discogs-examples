@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types = 1);
+
 namespace Project\Domain\App;
 
 use WebServCo\Framework\Cli\Ansi;
@@ -6,6 +7,7 @@ use WebServCo\Framework\Cli\Sgr;
 
 final class Command extends \Project\AbstractController
 {
+
     public function __construct()
     {
         parent::__construct(__NAMESPACE__);
@@ -22,6 +24,6 @@ final class Command extends \Project\AbstractController
         $this->outputCli();
         $this->outputCli('Hello World!');
         $this->outputCli();
-        return new \WebServCo\Framework\Cli\Response('', true);
+        return new \WebServCo\Framework\Cli\Response();
     }
 }

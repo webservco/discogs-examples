@@ -1,8 +1,10 @@
-<?php
+<?php declare(strict_types = 1);
+
 namespace Project\Domain\Api;
 
 final class ApiForm extends \Project\AbstractForm
 {
+
     public function __construct($defaultData = [])
     {
         parent::__construct(
@@ -27,7 +29,7 @@ final class ApiForm extends \Project\AbstractForm
         );
     }
 
-    protected function validate()
+    protected function validate(): bool
     {
         parent::validate();
 

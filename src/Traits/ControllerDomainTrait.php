@@ -1,15 +1,30 @@
-<?php
-namespace Project\Traits;
+<?php declare(strict_types = 1);
 
-use WebServCo\Framework\Exceptions\ApplicationException;
+namespace Project\Traits;
 
 trait ControllerDomainTrait
 {
-    abstract protected function config();
-    abstract public function data($key, $defaultValue = false);
-    abstract protected function setData($key, $value);
 
-    protected function initDomain()
+    /**
+     * Returns data if exists, $defaultValue otherwise.
+     *
+     * @param mixed $defaultValue
+     * @return mixed
+     */
+    abstract public function data(string $key, $defaultValue = false);
+
+    abstract protected function config();
+
+    /**
+     * @param mixed $key Can be an array, a string,
+     *                          or a special formatted string
+     *                          (eg 'app/path/project').
+     * @param mixed $value The value to be stored.
+     * @return bool True on success and false on failure.
+     */
+    abstract protected function setData($key, $value): bool;
+
+    protected function initDomain(): void
     {
         /* custom configuration settings */
         $this->config()->add(

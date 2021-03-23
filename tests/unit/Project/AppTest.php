@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types = 1);
+
 namespace Tests\Project;
 
 use PHPUnit\Framework\TestCase;
@@ -6,39 +7,34 @@ use Project\App;
 
 final class AppTest extends TestCase
 {
+
     /**
     * @test
-    * @expectedException \WebServCo\Framework\Exceptions\ApplicationException
     */
-    public function instantiationWithNullParameterThrowsException()
+    public function instantiationWithEmptyParameterThrowsException(): App
     {
-        new App(null);
+        $this->expectException(\WebServCo\Framework\Exceptions\ApplicationException::class);
+
+        return new App('');
     }
 
     /**
     * @test
-    * @expectedException \WebServCo\Framework\Exceptions\ApplicationException
     */
-    public function instantiationWithEmptyParameterThrowsException()
+    public function instantiationWithDummyParameterThrowsException(): App
     {
-        new App('');
+        $this->expectException(\WebServCo\Framework\Exceptions\ApplicationException::class);
+
+        return new App('foo');
     }
 
     /**
     * @test
-    * @expectedException \WebServCo\Framework\Exceptions\ApplicationException
     */
-    public function instantiationWithDummyParameterThrowsException()
+    public function instantiationInvalidParameterThrowsException(): App
     {
-        new App('foo');
-    }
+        $this->expectException(\WebServCo\Framework\Exceptions\ApplicationException::class);
 
-    /**
-    * @test
-    * @expectedException \WebServCo\Framework\Exceptions\ApplicationException
-    */
-    public function instantiationInvalidParameterThrowsException()
-    {
-        new App('/tmp', '/tmp');
+        return new App('/tmp', '/tmp');
     }
 }

@@ -1,16 +1,28 @@
-<?php
+<?php declare(strict_types = 1);
+
 namespace Project\Traits;
 
 use WebServCo\Framework\Framework;
 
 trait ControllerI18nTrait
 {
-    abstract protected function i18n();
-    abstract protected function request();
-    abstract protected function session();
-    abstract protected function setData($key, $value);
 
-    protected function initI18n()
+    abstract protected function i18n();
+
+    abstract protected function request();
+
+    abstract protected function session();
+    
+    /**
+     * @param mixed $key Can be an array, a string,
+     *                          or a special formatted string
+     *                          (eg 'app/path/project').
+     * @param mixed $value The value to be stored.
+     * @return bool True on success and false on failure.
+     */
+    abstract protected function setData($key, $value): bool;
+
+    protected function initI18n(): void
     {
         $this->setData('i18n/langs', $this->i18n()->getLanguages());
         $this->checkLanguage();
@@ -54,7 +66,7 @@ trait ControllerI18nTrait
          * Check browser accept language.
          */
         $acceptLanguage = $this->request()->getAcceptLanguage();
-        if (!empty($acceptLanguage) && array_key_exists($acceptLanguage, $this->data('i18n/langs'))) {
+        if (!empty($acceptLanguage) && \array_key_exists($acceptLanguage, $this->data('i18n/langs'))) {
             $lang = $acceptLanguage;
         }
 

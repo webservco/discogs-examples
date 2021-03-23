@@ -1,10 +1,12 @@
-<?php
+<?php declare(strict_types = 1);
+
 namespace Project\Domain\Api;
 
 use WebServCo\Framework\Http\Method;
 
 class Controller extends \Project\AbstractController
 {
+
     use \Project\Traits\DiscogsApiTrait;
 
     public function __construct()
@@ -20,7 +22,11 @@ class Controller extends \Project\AbstractController
     {
         $this->init(__FUNCTION__);
 
-        $form = new ApiForm([$this->data('defaultEndpoint')]);
+        $form = new ApiForm(
+            [
+                'endpoint' => $this->data('defaultEndpoint'),
+            ]
+        );
 
         $template = $this->getView(__FUNCTION__);
 
@@ -43,24 +49,24 @@ class Controller extends \Project\AbstractController
                 $this->setData('result/method', $apiResponse->getMethod());
                 $this->setData('result/status', $apiResponse->getStatus());
             } catch (\WebServCo\DiscogsAuth\Exceptions\AuthException $e) { // Authorization error
-                $this->setData('result/errorMessage', sprintf('AuthException: %s', $e->getMessage()));
+                $this->setData('result/errorMessage', \sprintf('AuthException: %s', $e->getMessage()));
             } catch (\WebServCo\DiscogsApi\Exceptions\ApiException $e) { // General API error
-                $this->setData('result/errorMessage', sprintf('ApiException: %s', $e->getMessage()));
-            } catch (\WebServCo\DiscogsApi\Exceptions\ApiResponseException $e) { // used when handleResponse = true
-                $this->setData('result/errorMessage', sprintf('ApiResponseException: %s', $e->getMessage()));
+                $this->setData('result/errorMessage', \sprintf('ApiException: %s', $e->getMessage()));
+            } catch (\WebServCo\DiscogsApi\Exceptions\ApiResponseException $e) { // used by response handler
+                $this->setData('result/errorMessage', \sprintf('ApiResponseException: %s', $e->getMessage()));
             } finally {
                 $template = 'api/result';
             }
         } else {
             $this->setData('api/url', \WebServCo\DiscogsApi\Url::API);
-            $this->setData('api/defaultEndpoint', sprintf('users/%s', $this->config()->get('discogs/api/username')));
+            $this->setData('api/defaultEndpoint', \sprintf('users/%s', $this->config()->get('discogs/api/username')));
             $this->setData('form', $form->toArray());
         }
 
         return $this->outputHtml($this->getData(), $template);
     }
 
-    public function post()
+    public function post(): void
     {
     }
 }

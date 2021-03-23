@@ -1,8 +1,8 @@
-<?php
-namespace Project\Traits;
+<?php declare(strict_types = 1);
 
-use WebServCo\Framework\Environment;
+namespace Project\Traits;
 
 trait RepositoryTrait
 {
+
 }

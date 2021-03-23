@@ -1,10 +1,9 @@
-<?php
+<?php declare(strict_types = 1);
+
 namespace Project;
 
 abstract class AbstractController extends \WebServCo\Framework\AbstractController
 {
-    protected $api;
-    protected $repository;
 
     use \Project\Traits\ControllerDiscogsTrait;
     use \Project\Traits\ControllerDomainTrait;
@@ -13,13 +12,16 @@ abstract class AbstractController extends \WebServCo\Framework\AbstractControlle
     use \Project\Traits\ControllerMetaTrait;
     use \Project\Traits\ControllerTrait;
     use \Project\Traits\ControllerViewTrait;
-
     use \Project\Traits\DatabaseTrait;
+
+    protected $api;
+    protected $repository;
 
     public function __construct($namespace)
     {
         // no library code before calling the parent constructor
         $outputLoader = new OutputLoader($this->config()->get('app/path/project'));
+
         parent::__construct($outputLoader);
 
         $this->setupPaths();
