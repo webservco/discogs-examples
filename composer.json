@@ -40,7 +40,7 @@
     },
     "scripts" : {
         "all": "clear && composer s:5 && composer check && composer test",
-        "check" : "phpcs --standard=php-coding-standard.xml --extensions=php -sp config public src tests",
+        "check" : "phpcs --standard=PSR2 --extensions=php -sp config public src tests",
         "check:devel": "grep -rnF 'XXX' config public resources src",
         "check:structure" : "pds-skeleton validate .",
         "s:5": "phpstan analyse src tests --level=5 --ansi -c phpstan.neon",
