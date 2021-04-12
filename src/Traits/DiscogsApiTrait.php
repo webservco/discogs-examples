@@ -25,7 +25,7 @@ trait DiscogsApiTrait
                     Config::string('APP_DISCOGS_CONSUMER_KEY'),
                     Config::string('APP_DISCOGS_CONSUMER_SECRET'),
                     Config::string('APP_DISCOGS_OAUTH_TOKEN'),
-                    Config::string('app_discogs_oauth_token_secret'),
+                    Config::string('APP_DISCOGS_OAUTH_TOKEN_SECRET'),
                 );
                 break;
             case 'user':
