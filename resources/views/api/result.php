@@ -62,7 +62,7 @@
         <div class="collapse" id="configContent" aria-labelledby="configHeader" data-parent="#apiResult">
             <div class="card-body">
                 <div class="alert alert-secondary" role="alert">
-                    <pre><samp><?php print_r($this->data('discogs/config/api')); ?></samp></pre>
+                    <pre><samp>N/A</samp></pre>
                 </div>
             </div>
 

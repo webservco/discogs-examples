@@ -54,7 +54,7 @@ class Controller extends \Project\AbstractController
 
         $apiObject = new \WebServCo\DiscogsApi\Api\User\Collection\Value(
             $this->api,
-            $this->config()->get('discogs/api/username'),
+            \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_MISC_USERNAME'),
         );
 
         try {
