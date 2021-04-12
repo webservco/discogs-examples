@@ -10,7 +10,7 @@ trait ControllerDiscogsTrait
     /**
      * @param mixed $key Can be an array, a string,
      *                          or a special formatted string
-     *                          (eg 'app/path/project').
+     *                          (eg '18n/lang').
      * @param mixed $value The value to be stored.
      * @return bool True on success and false on failure.
      */
@@ -25,7 +25,7 @@ trait ControllerDiscogsTrait
             'discogs',
             $this->config()->load(
                 'Discogs',
-                $this->config()->get('app/path/project')
+                \WebServCo\Framework\Environment\Config::string('APP_PATH_PROJECT'),
             )
         );
         $this->setData('discogs/config', $this->config()->get('discogs'));

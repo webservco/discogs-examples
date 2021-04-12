@@ -13,8 +13,8 @@ trait DiscogsApiTrait
     {
         $this->api = \WebServCo\DiscogsApi\ApiHelper::init(
             $this->config()->get('discogs/api'), // $apiConfig
-            $this->config()->get('app/path/log'), // $logPath
-            \sprintf('%svar/tmp/', $this->config()->get('app/path/project')) // $tmpPath
+            \WebServCo\Framework\Environment\Config::string('APP_PATH_LOG'), // $logPath
+            \sprintf('%svar/tmp/', \WebServCo\Framework\Environment\Config::string('APP_PATH_PROJECT')) // $tmpPath
         );
     }
 }

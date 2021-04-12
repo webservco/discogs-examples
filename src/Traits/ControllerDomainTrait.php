@@ -13,12 +13,10 @@ trait ControllerDomainTrait
      */
     abstract public function data(string $key, $defaultValue = false);
 
-    abstract protected function config();
-
     /**
      * @param mixed $key Can be an array, a string,
      *                          or a special formatted string
-     *                          (eg 'app/path/project').
+     *                          (eg 'i18n/lang').
      * @param mixed $value The value to be stored.
      * @return bool True on success and false on failure.
      */
@@ -26,15 +24,6 @@ trait ControllerDomainTrait
 
     protected function initDomain(): void
     {
-        /* custom configuration settings */
-        $this->config()->add(
-            'app',
-            $this->config()->load(
-                'App',
-                $this->data('path/project')
-            )
-        );
-
         $this->setData('location/current', $this->request()->getTarget());
     }
 }

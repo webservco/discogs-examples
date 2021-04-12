@@ -1,9 +1,0 @@
-<?php
-
-return [
-    'mail' => [
-        'to' => ['to@example.com', 'Name'],
-        'from' => ['from@example.com', 'Name'],
-        'bcc' => ['bcc@example.com', 'Name'],
-    ],
-];

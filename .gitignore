@@ -4,5 +4,4 @@ composer.lock
 package-lock.json
 
 # Configuration
-config/*/*.php
-.env
+config/.env.ini

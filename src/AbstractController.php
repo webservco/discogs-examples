@@ -17,17 +17,20 @@ abstract class AbstractController extends \WebServCo\Framework\AbstractControlle
     protected $api;
     protected $repository;
 
-    public function __construct($namespace)
+    public function __construct(string $namespace)
     {
+        $projectPath = \WebServCo\Framework\Environment\Config::string('APP_PATH_PROJECT');
+
         // no library code before calling the parent constructor
-        $outputLoader = new OutputLoader($this->config()->get('app/path/project'));
+        $outputLoader = new OutputLoader($projectPath);
 
         parent::__construct($outputLoader);
 
         $this->setupPaths();
 
-        if (!\WebServCo\Framework\Framework::isCli()) { // no session in CLI
-            $this->session()->start($this->data('path/project') . 'var/sessions');
+        // no session in CLI
+        if (!\WebServCo\Framework\Helpers\PhpHelper::isCli()) {
+            $this->session()->start(\sprintf('%svar/sessions', $projectPath));
         }
 
         $this->initViews($namespace);

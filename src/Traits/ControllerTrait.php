@@ -24,7 +24,7 @@ trait ControllerTrait
     /**
      * @param mixed $key Can be an array, a string,
      *                          or a special formatted string
-     *                          (eg 'app/path/project').
+     *                          (eg 'i18n/lang').
      * @param mixed $value The value to be stored.
      * @return bool True on success and false on failure.
      */
@@ -32,7 +32,6 @@ trait ControllerTrait
 
     protected function setupPaths(): void
     {
-        $this->setData('path', $this->config()->get('app/path'));
         $this->setData('url/app', $this->request()->getAppUrl());
         $this->setData('url/lang', $this->request()->getUrl(['lang']));
         $this->setData('url/current', $this->request()->getUrl());

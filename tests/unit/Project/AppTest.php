@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tests\Project;
 
@@ -15,7 +17,7 @@ final class AppTest extends TestCase
     {
         $this->expectException(\WebServCo\Framework\Exceptions\ApplicationException::class);
 
-        return new App('');
+        return new App('', '', null);
     }
 
     /**
@@ -25,7 +27,7 @@ final class AppTest extends TestCase
     {
         $this->expectException(\WebServCo\Framework\Exceptions\ApplicationException::class);
 
-        return new App('foo');
+        return new App('foo', 'bar', null);
     }
 
     /**
@@ -35,6 +37,6 @@ final class AppTest extends TestCase
     {
         $this->expectException(\WebServCo\Framework\Exceptions\ApplicationException::class);
 
-        return new App('/tmp', '/tmp');
+        return new App('/tmp', '/tmp', null);
     }
 }

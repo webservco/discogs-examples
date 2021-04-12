@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 return [
     /**
@@ -30,8 +30,4 @@ return [
          */
         'httponly' => true,
     ],
-    /**
-     * Stop execution if unable to set custom storage path.
-     */
-    'strict_custom_path' => true,
 ];
