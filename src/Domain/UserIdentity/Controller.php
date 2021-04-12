@@ -22,7 +22,7 @@ class Controller extends \Project\AbstractController
 
         $apiObject = new \WebServCo\DiscogsApi\Api\User\Identity\Profile(
             $this->api,
-            $this->config()->get('discogs/api/username')
+            \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_MISC_USERNAME'),
         );
 
         try {
@@ -36,7 +36,7 @@ class Controller extends \Project\AbstractController
             $this->setData('result/errorMessage', \sprintf('AuthException: %s', $e->getMessage()));
         } catch (\WebServCo\DiscogsApi\Exceptions\ApiException $e) {
             $this->setData('result/errorMessage', \sprintf('ApiException: %s', $e->getMessage()));
-        } catch (\WebServCo\DiscogsApi\Exceptions\ApiResponseException $e) { 
+        } catch (\WebServCo\DiscogsApi\Exceptions\ApiResponseException $e) {
             $this->setData('result/errorMessage', \sprintf('ApiResponseException: %s', $e->getMessage()));
         }
 

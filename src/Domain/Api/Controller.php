@@ -59,7 +59,10 @@ class Controller extends \Project\AbstractController
             }
         } else {
             $this->setData('api/url', \WebServCo\DiscogsApi\Url::API);
-            $this->setData('api/defaultEndpoint', \sprintf('users/%s', $this->config()->get('discogs/api/username')));
+            $this->setData(
+                'api/defaultEndpoint',
+                sprintf('users/%s', \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_MISC_USERNAME')),
+            );
             $this->setData('form', $form->toArray());
         }
 

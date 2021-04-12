@@ -29,11 +29,11 @@ class Controller extends \Project\AbstractController
         * This endpoint requires custom authorization.
         */
         $auth = new \WebServCo\DiscogsAuth\OAuth\AccessToken(
-            $this->config()->get('discogs/api/auth/app/consumerKey'),
-            $this->config()->get('discogs/api/auth/app/consumerSecret'),
-            $this->config()->get('discogs/api/auth/oauth/flow/oauthToken'),
-            $this->config()->get('discogs/api/auth/oauth/flow/oauthTokenSecret'),
-            $this->config()->get('discogs/api/auth/oauth/flow/oauthVerifier')
+            \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_CONSUMER_KEY'),
+            \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_CONSUMER_SECRET'),
+            \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_OAUTH_FLOW_TOKEN'),
+            \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_OAUTH_FLOW_TOKEN_SECRET'),
+            \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_OAUTH_FLOW_VERIFIER'),
         );
         $this->api->setAuthInterface($auth);
 
@@ -97,7 +97,7 @@ class Controller extends \Project\AbstractController
         return $this->getRedirectUrlResponse(
             \sprintf(
                 'https://discogs.com/oauth/authorize?oauth_token=%s',
-                $this->config()->get('discogs/api/auth/oauth/flow/oauthToken')
+                \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_OAUTH_FLOW_TOKEN'),
             )
         );
     }
@@ -111,9 +111,9 @@ class Controller extends \Project\AbstractController
         * This endpoint requires custom authorization.
         */
         $auth = new \WebServCo\DiscogsAuth\OAuth\RequestToken(
-            $this->config()->get('discogs/api/auth/app/consumerKey'),
-            $this->config()->get('discogs/api/auth/app/consumerSecret'),
-            $this->config()->get('discogs/api/auth/oauth/flow/callback')
+            \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_CONSUMER_KEY'),
+            \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_CONSUMER_SECRET'),
+            \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_OAUTH_FLOW_CALLBACK'),
         );
         $this->api->setAuthInterface($auth);
 
@@ -130,7 +130,7 @@ class Controller extends \Project\AbstractController
             $this->setData('result/errorMessage', \sprintf('AuthException: %s', $e->getMessage()));
         } catch (ApiException $e) {
             $this->setData('result/errorMessage', \sprintf('ApiException: %s', $e->getMessage()));
-        } catch (ApiResponseException $e) { 
+        } catch (ApiResponseException $e) {
             $this->setData('result/errorMessage', \sprintf('ApiResponseException: %s', $e->getMessage()));
         }
 
