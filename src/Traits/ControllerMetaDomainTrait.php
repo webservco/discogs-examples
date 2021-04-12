@@ -7,7 +7,10 @@ namespace Project\Traits;
 trait ControllerMetaDomainTrait
 {
 
-    protected function getMeta($action)
+    /**
+    * @return array<string,string>
+    */
+    protected function getMeta(string $action): array
     {
         switch ($action) {
             default:
@@ -15,7 +18,10 @@ trait ControllerMetaDomainTrait
         }
     }
 
-    protected function getDefaultMeta()
+    /**
+    * @return array<string,string>
+    */
+    protected function getDefaultMeta(): array
     {
         return [
             'title' => 'Discogs Examples',

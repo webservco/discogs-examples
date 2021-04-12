@@ -8,14 +8,6 @@ trait ControllerDomainTrait
 {
 
     /**
-     * Returns data if exists, $defaultValue otherwise.
-     *
-     * @param mixed $defaultValue
-     * @return mixed
-     */
-    abstract public function data(string $key, $defaultValue = false);
-
-    /**
      * @param mixed $key Can be an array, a string,
      *                          or a special formatted string
      *                          (eg 'i18n/lang').

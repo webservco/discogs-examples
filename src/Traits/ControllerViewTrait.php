@@ -22,15 +22,15 @@ trait ControllerViewTrait
      * @param mixed $value The value to be stored.
      * @return bool True on success and false on failure.
      */
-    abstract protected function setData($key, $value): bool;
+    abstract public function setData($key, $value): bool;
 
-    protected function initViews($namespace): void
+    protected function initViews(string $namespace): void
     {
         $parts = \explode('\\', $namespace);
         $this->setData('dir/views', \strtolower((string) \end($parts)));
     }
 
-    protected function getView($templateName)
+    protected function getView(string $templateName): string
     {
         return \sprintf('%s/%s', $this->data('dir/views'), $templateName);
     }

@@ -4,16 +4,14 @@ declare(strict_types=1);
 
 namespace Project\Traits;
 
-use WebServCo\Framework\Framework;
-
 trait ControllerI18nTrait
 {
 
-    abstract protected function i18n();
+    abstract protected function i18n(): \WebServCo\Framework\Interfaces\I18nInterface;
 
-    abstract protected function request();
+    abstract protected function request(): \WebServCo\Framework\Interfaces\RequestInterface;
 
-    abstract protected function session();
+    abstract protected function session(): \WebServCo\Framework\Interfaces\SessionInterface;
 
     /**
      * @param mixed $key Can be an array, a string,
@@ -31,24 +29,25 @@ trait ControllerI18nTrait
         $this->setData('i18n/lang', $this->i18n()->getLanguage());
     }
 
-    protected function checkLanguage()
+    protected function checkLanguage(): bool
     {
         /**
          * Get language set by session.
-        */
-        if (!Framework::isCli()) { // no session in CLI
-            $lang = $this->session()->get('i18n/language');
-        } else {
-            $lang = null;
-        }
+         */
 
-        $this->i18n()->init(\WebServCo\Framework\Environment\Config::string('APP_PATH_PROJECT'), $lang);
+        // no session in CLI
+        $lang = !\WebServCo\Framework\Helpers\PhpHelper::isCli()
+            ? $this->session()->get('i18n/language')
+            : null;
+
+        $this->i18n()->init(\WebServCo\Framework\Environment\Config::string('APP_PATH_PROJECT'), (string) $lang);
 
         /**
          * Check switch request.
          */
         $requestLang = $this->request()->query('lang');
-        if (!empty($requestLang)) {
+
+        if ($requestLang) {
             return $this->setLanguage($requestLang);
         }
 
@@ -68,7 +67,8 @@ trait ControllerI18nTrait
          * Check browser accept language.
          */
         $acceptLanguage = $this->request()->getAcceptLanguage();
-        if (!empty($acceptLanguage) && \array_key_exists($acceptLanguage, $this->data('i18n/langs'))) {
+
+        if ($acceptLanguage && \array_key_exists($acceptLanguage, $this->data('i18n/langs'))) {
             $lang = $acceptLanguage;
         }
 
@@ -78,12 +78,14 @@ trait ControllerI18nTrait
         return $this->setLanguage($lang);
     }
 
-    protected function setLanguage($lang)
+    protected function setLanguage(string $lang): bool
     {
-        if (!Framework::isCli()) { // no session in CLI
+        // no session in CLI
+        if (!\WebServCo\Framework\Helpers\PhpHelper::isCli()) {
             $this->session()->set('i18n/language', $lang);
         }
         $this->i18n()->setLanguage($lang);
+
         return true;
     }
 }

@@ -10,27 +10,19 @@ trait ControllerTrait
 {
 
     /**
-     * Returns data if exists, $defaultValue otherwise.
-     *
-     * @param mixed $defaultValue
-     * @return mixed
-     */
-    abstract public function data(string $key, $defaultValue = false);
-
-    abstract protected function initDomain();
-
-    abstract protected function initMeta($action);
-
-    abstract protected function request();
-
-    /**
      * @param mixed $key Can be an array, a string,
      *                          or a special formatted string
      *                          (eg 'i18n/lang').
      * @param mixed $value The value to be stored.
      * @return bool True on success and false on failure.
      */
-    abstract protected function setData($key, $value): bool;
+    abstract public function setData($key, $value): bool;
+
+    abstract protected function initDomain(): void;
+
+    abstract protected function initMeta(string $action): void;
+
+    abstract protected function request(): \WebServCo\Framework\Interfaces\RequestInterface;
 
     protected function setupPaths(): void
     {
@@ -42,7 +34,7 @@ trait ControllerTrait
     /**
      * Called (optionally) by each method.
      */
-    protected function init($action): void
+    protected function init(string $action): void
     {
         $this->initDomain();
         $this->initMeta($action);

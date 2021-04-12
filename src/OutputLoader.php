@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Project;
 
-use WebServCo\Framework\Framework;
-
 final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
 {
 
@@ -13,9 +11,14 @@ final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
     {
         parent::__construct(
             $projectPath,
-            Framework::library('HtmlOutput'),
-            Framework::library('JsonOutput'),
+            \WebServCo\Framework\Helpers\HtmlOutputLibraryHelper::library(),
+            \WebServCo\Framework\Helpers\JsonOutputLibraryHelper::library(),
         );
+    }
+
+    public function cli(string $string, bool $eol = true): bool
+    {
+        return parent::cli($string, $eol);
     }
 
     /**
@@ -40,10 +43,5 @@ final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
     public function json(array $data): string
     {
         return parent::json($data);
-    }
-
-    public function cli(string $string, bool $eol = true): bool
-    {
-        return parent::cli($string, $eol);
     }
 }

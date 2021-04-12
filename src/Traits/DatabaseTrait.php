@@ -7,7 +7,7 @@ namespace Project\Traits;
 trait DatabaseTrait
 {
 
-    final protected function db()
+    final protected function db(): \WebServCo\Framework\Interfaces\DatabaseInterface
     {
         return $this->mysqlPdoDb();
     }

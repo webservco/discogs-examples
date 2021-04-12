@@ -9,7 +9,7 @@ abstract class AbstractRepository extends \WebServCo\Framework\AbstractRepositor
     use \Project\Traits\DatabaseTrait;
     use \Project\Traits\RepositoryTrait;
 
-    public function __construct($outputLoader)
+    public function __construct(\WebServCo\Framework\Interfaces\OutputLoaderInterface $outputLoader)
     {
         parent::__construct($outputLoader);
     }

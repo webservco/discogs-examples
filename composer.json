@@ -16,10 +16,10 @@
     ],
     "require" : {
         "php" : "^7.4",
-        "webservco/api" : "^2",
-        "webservco/discogs-api" : "^2",
-        "webservco/discogs-auth" : "^2",
-        "webservco/framework" : "^11"
+        "webservco/api" : "@dev",
+        "webservco/discogs-api" : "@dev",
+        "webservco/discogs-auth" : "@dev",
+        "webservco/framework" : "@dev"
     },
     "require-dev" : {
         "pds/skeleton" : "^1.0",
