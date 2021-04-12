@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Project\Domain\UserCollection;
 
@@ -8,7 +10,6 @@ use WebServCo\DiscogsAuth\Exceptions\AuthException;
 
 class Controller extends \Project\AbstractController
 {
-
     use \Project\Traits\DiscogsApiTrait;
 
     public function __construct()
@@ -53,7 +54,7 @@ class Controller extends \Project\AbstractController
 
         $apiObject = new \WebServCo\DiscogsApi\Api\User\Collection\Value(
             $this->api,
-            $this->config()->get('discogs/api/username')
+            $this->config()->get('discogs/api/username'),
         );
 
         try {

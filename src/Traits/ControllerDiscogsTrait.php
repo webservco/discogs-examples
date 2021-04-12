@@ -1,11 +1,13 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Project\Traits;
 
 trait ControllerDiscogsTrait
 {
 
-    abstract protected function config();
+    abstract protected function config(): void;
 
     /**
      * @param mixed $key Can be an array, a string,
@@ -26,7 +28,7 @@ trait ControllerDiscogsTrait
             $this->config()->load(
                 'Discogs',
                 \WebServCo\Framework\Environment\Config::string('APP_PATH_PROJECT'),
-            )
+            ),
         );
         $this->setData('discogs/config', $this->config()->get('discogs'));
     }

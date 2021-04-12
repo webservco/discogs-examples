@@ -1,10 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Project;
 
 abstract class AbstractRepository extends \WebServCo\Framework\AbstractRepository
 {
-
     use \Project\Traits\DatabaseTrait;
     use \Project\Traits\RepositoryTrait;
 

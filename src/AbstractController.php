@@ -1,10 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Project;
 
 abstract class AbstractController extends \WebServCo\Framework\AbstractController
 {
-
     use \Project\Traits\ControllerDiscogsTrait;
     use \Project\Traits\ControllerDomainTrait;
     use \Project\Traits\ControllerI18nTrait;

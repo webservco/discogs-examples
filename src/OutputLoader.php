@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Project;
 
@@ -12,7 +14,7 @@ final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
         parent::__construct(
             $projectPath,
             Framework::library('HtmlOutput'),
-            Framework::library('JsonOutput')
+            Framework::library('JsonOutput'),
         );
     }
 

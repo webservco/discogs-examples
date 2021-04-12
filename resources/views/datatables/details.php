@@ -1,5 +1,12 @@
+<?php
+
+declare(strict_types=1);
+
+?>
 <h1>Item details</h1>
-<?php if ($this->data('item')) { ?>
+<?php
+
+if ($this->data('item')) { ?>
     <p>
         <strong>Id</strong>: <code><?=$this->data('item/id')?></code>
     </p>

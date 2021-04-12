@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Project\Domain\Api;
 
@@ -25,7 +27,7 @@ final class ApiForm extends \Project\AbstractForm
                 ],
             ],
             $defaultData,
-            ['submit'] //$submitFields
+            ['submit'], //$submitFields
         );
     }
 

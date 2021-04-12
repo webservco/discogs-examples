@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Project\Traits;
 
@@ -9,11 +11,9 @@ trait DiscogsApiTrait
 
     protected $api;
 
-    abstract protected function config();
-
     protected function initDiscogsApi(): void
     {
-        switch(Config::string('APP_DISCOGS_AUTH_TYPE')) {
+        switch (Config::string('APP_DISCOGS_AUTH_TYPE')) {
             case 'app':
                 $authLibrary = new \WebServCo\DiscogsAuth\Discogs\App(
                     Config::string('APP_DISCOGS_CONSUMER_KEY'),
@@ -45,7 +45,7 @@ trait DiscogsApiTrait
         $httpClient = new \WebServCo\Framework\Http\CurlClient($httpLogger);
 
         $rateLimiter = new \WebServCo\DiscogsApi\RateLimiter(
-            \sprintf('%svar/tmp/', Config::string('APP_PATH_PROJECT'))
+            \sprintf('%svar/tmp/', Config::string('APP_PATH_PROJECT')),
         );
 
         $settings = new \WebServCo\DiscogsApi\Settings(
@@ -54,12 +54,6 @@ trait DiscogsApiTrait
             Config::string('APP_DISCOGS_SETTINGS_USER_AGENT'),
         );
 
-        $this->api = new \WebServCo\DiscogsApi\Client(
-            $authLibrary,
-            $httpClient,
-            $logger,
-            $rateLimiter,
-            $settings,
-        );
+        $this->api = new \WebServCo\DiscogsApi\Client($authLibrary, $httpClient, $logger, $rateLimiter, $settings);
     }
 }

@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Project;
 
@@ -25,7 +27,7 @@ abstract class AbstractForm extends \WebServCo\Framework\AbstractForm
 
             $this->errors[$item][] = \sprintf(
                 'This field is required: %s',
-                $this->setting(\sprintf('meta/%s', $item))
+                $this->setting(\sprintf('meta/%s', $item)),
             );
         }
         if (!empty($this->errors)) {

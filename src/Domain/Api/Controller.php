@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Project\Domain\Api;
 
@@ -6,7 +8,6 @@ use WebServCo\Framework\Http\Method;
 
 class Controller extends \Project\AbstractController
 {
-
     use \Project\Traits\DiscogsApiTrait;
 
     public function __construct()
@@ -25,7 +26,7 @@ class Controller extends \Project\AbstractController
         $form = new ApiForm(
             [
                 'endpoint' => $this->data('defaultEndpoint'),
-            ]
+            ],
         );
 
         $template = $this->getView(__FUNCTION__);
@@ -61,7 +62,7 @@ class Controller extends \Project\AbstractController
             $this->setData('api/url', \WebServCo\DiscogsApi\Url::API);
             $this->setData(
                 'api/defaultEndpoint',
-                sprintf('users/%s', \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_MISC_USERNAME')),
+                \sprintf('users/%s', \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_MISC_USERNAME')),
             );
             $this->setData('form', $form->toArray());
         }

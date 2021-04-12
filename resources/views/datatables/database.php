@@ -1,3 +1,8 @@
+<?php
+
+declare(strict_types=1);
+
+?>
 <h1>DataTables <small><span class="badge badge-primary font-weight-lighter">Database</span></small></h1>
 
 <p>Full implementation using a database backend.</p>
@@ -12,7 +17,8 @@
 </p>
 
 
-<table id="datatables-database" class="table table-sm <?php /*layout problems table-striped */ ?><?php /* doesn't work for complex headers ?>dt-responsive */ ?>" style="width:100%">
+<table id="datatables-database" class="table table-sm <?php /*layout problems table-striped */ ?>
+    <?php /* doesn't work for complex headers ?>dt-responsive */ ?>" style="width:100%">
     <thead>
         <tr>
             <th></th>

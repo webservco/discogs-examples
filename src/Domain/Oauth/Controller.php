@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Project\Domain\Oauth;
 
@@ -8,7 +10,6 @@ use WebServCo\DiscogsAuth\Exceptions\AuthException;
 
 class Controller extends \Project\AbstractController
 {
-
     use \Project\Traits\DiscogsApiTrait;
 
     public function __construct()
@@ -98,7 +99,7 @@ class Controller extends \Project\AbstractController
             \sprintf(
                 'https://discogs.com/oauth/authorize?oauth_token=%s',
                 \WebServCo\Framework\Environment\Config::string('APP_DISCOGS_OAUTH_FLOW_TOKEN'),
-            )
+            ),
         );
     }
 

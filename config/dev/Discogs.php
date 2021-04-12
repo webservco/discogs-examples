@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 return [
     'api' => [
@@ -33,7 +35,7 @@ return [
             'rateLimiting' => true,
             'userAgent' => 'DiscogsExamples/0.1 +https://github.com/webservco/discogs-examples',
         ],
-        'username' =>'radum',
+        'username' => 'radum',
         //'username' =>'mst1958',
     ],
     'data' => [

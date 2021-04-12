@@ -1,10 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Project\Domain\UserIdentity;
 
 class Controller extends \Project\AbstractController
 {
-
     use \Project\Traits\DiscogsApiTrait;
 
     public function __construct()
