@@ -6,7 +6,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 try {
     // Initialize and run the app.
-    $app = new \Project\App(
+    $app = new \WebServCo\Framework\Application(
         __DIR__, // publicPath, web accessible project directory path
         null, // projectPath, parent of publicPath if not set
         null, // projectNamespace, "Project" if not set
