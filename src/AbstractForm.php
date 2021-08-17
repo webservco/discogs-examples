@@ -29,7 +29,7 @@ abstract class AbstractForm extends \WebServCo\Framework\AbstractForm
         return true;
     }
 
-    protected function validate(): bool
+    public function validate(): bool
     {
         foreach ($this->setting('required', []) as $item) {
             if (!empty($this->data($item))) {

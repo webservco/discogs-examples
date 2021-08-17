@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\Project;
 
 use PHPUnit\Framework\TestCase;
-use Project\App;
+use WebServCo\Framework\Application;
 
 final class AppTest extends TestCase
 {
@@ -13,30 +13,30 @@ final class AppTest extends TestCase
     /**
     * @test
     */
-    public function instantiationWithEmptyParameterThrowsException(): App
+    public function instantiationWithEmptyParameterThrowsException(): Application
     {
         $this->expectException(\WebServCo\Framework\Exceptions\ApplicationException::class);
 
-        return new App('', '', null);
+        return new Application('', '', null);
     }
 
     /**
     * @test
     */
-    public function instantiationWithDummyParameterThrowsException(): App
+    public function instantiationWithDummyParameterThrowsException(): Application
     {
         $this->expectException(\WebServCo\Framework\Exceptions\ApplicationException::class);
 
-        return new App('foo', 'bar', null);
+        return new Application('foo', 'bar', null);
     }
 
     /**
     * @test
     */
-    public function instantiationInvalidParameterThrowsException(): App
+    public function instantiationInvalidParameterThrowsException(): Application
     {
         $this->expectException(\WebServCo\Framework\Exceptions\ApplicationException::class);
 
-        return new App('/tmp', '/tmp', null);
+        return new Application('/tmp', '/tmp', null);
     }
 }
