@@ -1,7 +1,7 @@
 {
     "name" : "webservco/discogs-examples",
     "type" : "project",
-    "description" : "Discogs libraries implementation examples.",
+    "description" : "Web pages that call the Discogs API through webservco/discogs-api and webservco/discogs-auth, one page per implemented endpoint plus a form for custom calls.",
     "keywords" : [
         "webservco",
         "discogs"
